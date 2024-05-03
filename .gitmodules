@@ -1,0 +1,3 @@
+[submodule "mywebserver"]
+	path = mywebserver
+	url = git@github.com:cbandi18/chef-pipeline.git
