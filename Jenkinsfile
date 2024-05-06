@@ -10,7 +10,8 @@ pipeline {
         
         stage('Testing') {
             steps {
-                sh 'chef exec rspec'
+                sh 'LANG=en_US chef exec rspec'
+                
             }
         }
         
