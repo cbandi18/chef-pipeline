@@ -1,4 +1,4 @@
-name 'mywebserver'
+name 'myNginxServer'
 maintainer 'Chaitanya'
 maintainer_email 'chaitanyakumar.bandi@valpo.edu'
 license 'All Rights Reserved'
