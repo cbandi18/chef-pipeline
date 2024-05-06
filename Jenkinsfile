@@ -10,19 +10,21 @@ pipeline {
         
         stage('Testing') {
             steps {
-                sh 'chef exec rspec'
+                sh 'LANG=en_US chef exec rspec'
+                
             }
         }
         
         stage('Cookbook Validation') {
             steps {
-                sh 'knife cookbook test mywebserver'
+                sh 'kitchen test mywebserver'
             }
         }
         
         stage('Deployment') {
             steps {
-                sh 'knife cookbook upload mywebserver'
+                sh 'knife --config config.rb cookbook upload mywebserver'
+                
             }
         }
     }
