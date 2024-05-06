@@ -16,13 +16,13 @@ pipeline {
         
         stage('Cookbook Validation') {
             steps {
-                sh 'knife cookbook test mycookbook'
+                sh 'knife cookbook test mywebserver'
             }
         }
         
         stage('Deployment') {
             steps {
-                sh 'knife cookbook upload mycookbook'
+                sh 'knife cookbook upload mywebserver'
             }
         }
     }
