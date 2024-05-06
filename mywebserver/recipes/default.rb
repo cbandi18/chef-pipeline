@@ -1,4 +1,3 @@
-#
 # Cookbook:: mywebserver
 # Recipe:: default
 #
