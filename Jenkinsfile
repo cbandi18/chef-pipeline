@@ -23,7 +23,8 @@ pipeline {
         
         stage('Deployment') {
             steps {
-                sh 'knife cookbook upload mywebserver'
+                sh 'knife --config config.rb cookbook upload mywebserver'
+                
             }
         }
     }
