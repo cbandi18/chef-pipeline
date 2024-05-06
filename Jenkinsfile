@@ -18,13 +18,12 @@ pipeline {
         
         stage('Deployment') {
     environment {
-        CHEF_SERVER_URL = ‘https://manage.chef.io/organizations/valpo18’
         CHEF_PEM_FILE_PATH = '/home/student/.chef/cbandi.pem'
     }
     steps {
         sh '''
             knife --config config.rb \
-                  --server-url $CHEF_SERVER_URL \
+                  --server-url $(https://manage.chef.io/organizations/valpo18) \
                   --client-key $CHEF_PEM_FILE_PATH \
                   cookbook upload mywebserver
         '''
