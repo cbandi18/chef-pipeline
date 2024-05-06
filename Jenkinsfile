@@ -26,7 +26,7 @@ pipeline {
             knife cookbook upload mywebserver \
                   --config config.rb \
                   --server-url "$CHEF_SERVER_URL" \
-                  --client-key "$CHEF_PEM_FILE_PATH"
+                  --key "$CHEF_PEM_FILE_PATH"
         '''
     }
 }
