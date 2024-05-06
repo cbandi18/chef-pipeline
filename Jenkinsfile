@@ -15,11 +15,6 @@ pipeline {
             }
         }
         
-   #     stage('Cookbook Validation') {
-    #        steps {
-     #           sh 'kitchen test mywebserver'
-      #      }
-       # }
         
         stage('Deployment') {
             steps {
