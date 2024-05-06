@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Linting') {
             steps {
-                sh 'cookstyle .'
+                sh 'cookstyle mywebserver'
             }
         }
         
