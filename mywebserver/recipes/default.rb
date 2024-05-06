@@ -22,4 +22,3 @@ file '/var/www/html/index.html' do
   content '<html><body><h1>Hello, Chef!</h1></body></html>'
   action :create
 end
-

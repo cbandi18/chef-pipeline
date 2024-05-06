@@ -1,6 +1,6 @@
 name 'mywebserver'
-maintainer 'The Authors'
-maintainer_email 'you@example.com'
+maintainer 'Chaitanya'
+maintainer_email 'chaitanyakumar.bandi@valpo.edu'
 license 'All Rights Reserved'
 description 'Installs/Configures mywebserver'
 version '0.1.0'
