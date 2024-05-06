@@ -17,7 +17,7 @@ pipeline {
         
         stage('Cookbook Validation') {
             steps {
-                sh 'knife cookbook test mywebserver'
+                sh 'kitchen test mywebserver'
             }
         }
         
