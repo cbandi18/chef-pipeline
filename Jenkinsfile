@@ -23,7 +23,7 @@ pipeline {
     }
     steps {
         sh '''
-            knife cookbook upload --cookbook-path /home/student/chef-repo/cookbooks  mywebserver \
+            knife cookbook upload --cookbook-path /home/student/chef-repo/cookbooks mywebserver \
                   --config config.rb \
                   --server-url "$CHEF_SERVER_URL" \
                   --key "$CHEF_PEM_FILE_PATH"
