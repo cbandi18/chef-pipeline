@@ -22,12 +22,14 @@ pipeline {
         CHEF_PEM_FILE_PATH = '/home/student/.chef/cbandi.pem'
     }
     steps {
+        withCredentials([string(credentialsId: 'chef_secret', variable: 'CHEF_PEM_KEY')]) {
         sh '''
             knife cookbook upload --cookbook-path /home/student/chef-repo/cookbooks mywebserver \
                   --config config.rb \
                   --server-url "$CHEF_SERVER_URL" \
                   --key "$CHEF_PEM_FILE_PATH"
         '''
+        }
     }
 }
 
