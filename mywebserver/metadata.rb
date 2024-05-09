@@ -3,7 +3,7 @@ maintainer 'ChaitanyaBandi'
 maintainer_email 'chaitanyakumar.bandi@valpo.edu'
 license 'All Rights Reserved'
 description 'Installs/Configures mywebserver'
-version '0.2.1'
+version '0.3.0'
 chef_version '< 16.0'
 
 # The `issues_url` points to the location where issues for this cookbook are
