@@ -27,7 +27,7 @@ pipeline {
                 sh ''' 
                     env
                     pwd
-                    mkdir .chef
+                    #mkdir .chef
                     echo "$CHEF_SECRET" > ${pwd}/.chef/cbandi.pem
                     ls $pwd/.chef/cbandi.pem
                     knife cookbook upload --cookbook-path $pwd sample \
