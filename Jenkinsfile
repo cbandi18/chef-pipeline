@@ -24,8 +24,10 @@ pipeline {
 
             // Upload cookbook using knife command
             withCredentials([file(credentialsId: 'chef_secret', variable: 'CHEF_SECRET')]) {
-                sh '''
-                    knife cookbook upload --cookbook-path /home/student/chef-repo/cookbooks sample \
+                sh ''' 
+                    env
+                    pwd
+                    knife cookbook upload --cookbook-path $pwd sample \
                           --config config.rb \
                           --server-url "${chefServerUrl}" \
                           --key "${chefPemFilePath}"
