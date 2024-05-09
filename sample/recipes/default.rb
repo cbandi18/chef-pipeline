@@ -19,7 +19,7 @@ end
 
 # Create a simple HTML file
 file '/var/www/html/index.html' do
-  content '<html><body><h1>Hello, Chef!</h1></body></html>'
+  content '<html><body><h1>Hello, Valpo Students!!!</h1></body></html>'
   action :create
 end
 
