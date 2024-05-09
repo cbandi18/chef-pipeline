@@ -34,7 +34,6 @@ pipeline {
                     ls .chef/cbandi.pem
                     knife cookbook upload --cookbook-path $(pwd) sample \
                           --config ./config.rb \
-                          --server-url "${chefServerUrl}" \
                           --key .chef/cbandi.pem
                 '''
         }
