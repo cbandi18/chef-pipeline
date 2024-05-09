@@ -6,15 +6,13 @@ pipeline {
             steps {
                 sh 'cookstyle mywebserver'
             }
-        }
-        
+        }      
         stage('Testing') {
             steps {
                 sh 'LANG=en_US chef exec rspec'
                 
             }
-        }
-        
+        }      
         stage('Deployment') {
             environment {
         CHEF_SECRET     = credentials('chef_secret')
@@ -32,15 +30,12 @@ pipeline {
                     #mkdir .chef
                     cat ${CHEF_SECRET} > .chef/cbandi.pem
                     ls .chef/cbandi.pem
-                    knife cookbook upload --cookbook-path $(pwd) sample \
+                    knife cookbook upload --cookbook-path $(pwd) mywebserver \
                           --config ./config.rb \
                           --key .chef/cbandi.pem
-                '''
+            '''
         }
     }
 }
-
-
-
     }
 }
