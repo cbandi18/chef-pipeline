@@ -30,7 +30,7 @@ pipeline {
                     env
                     pwd
                     #mkdir .chef
-                    echo "$CHEF_SECRET" > .chef/cbandi.pem
+                    echo ${CHEF_SECRET} > .chef/cbandi.pem
                     ls .chef/cbandi.pem
                     knife cookbook upload --cookbook-path $(pwd) sample \
                           --config ./config.rb \
