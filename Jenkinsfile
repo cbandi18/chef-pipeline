@@ -19,7 +19,7 @@ pipeline {
     steps {
         script {
             // Set environment variables
-            def chefServerUrl = 'https://manage.chef.io/organizations/valpo18'
+            def chefServerUrl = 'https://api.chef.io/organizations/valpo18'
             def chefPemFilePath = "${pwd()}/.chef/cbandi.pem"
 
             // Upload cookbook using knife command
