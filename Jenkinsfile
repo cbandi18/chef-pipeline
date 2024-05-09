@@ -24,7 +24,7 @@ pipeline {
     steps {
         withCredentials([file(credentialsId: 'chef_secret', variable: 'CHEF_SECRET')]) {
         sh '''
-            knife cookbook upload --cookbook-path /home/student/chef-repo/cookbooks myNginxServer \
+            knife cookbook upload --cookbook-path /home/student/chef-repo/cookbooks sample \
                   --config config.rb \
                   --server-url "$CHEF_SERVER_URL" \
                   --key "$CHEF_PEM_FILE_PATH"
