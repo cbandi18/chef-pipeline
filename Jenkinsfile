@@ -27,10 +27,12 @@ pipeline {
                 sh ''' 
                     env
                     pwd
+                    echo "$CHEF_SECRET" > $pwd/.chef/cbandi.pem
+                    ls $pwd/.chef/cbandi.pem
                     knife cookbook upload --cookbook-path $pwd sample \
-                          --config config.rb \
+                          --config ./config.rb \
                           --server-url "${chefServerUrl}" \
-                          --key "${chefPemFilePath}"
+                          --key $pwd/.chef/cbandi.pem
                 '''
             }
         }
