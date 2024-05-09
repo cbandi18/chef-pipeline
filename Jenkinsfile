@@ -15,23 +15,26 @@ pipeline {
             }
         }
         
-        
         stage('Deployment') {
-    environment {
-        CHEF_SERVER_URL = 'https://manage.chef.io/organizations/valpo18'
-        CHEF_PEM_FILE_PATH = '/home/student/.chef/cbandi.pem'
-    }
     steps {
-        withCredentials([file(credentialsId: 'chef_secret', variable: 'CHEF_SECRET')]) {
-        sh '''
-            knife cookbook upload --cookbook-path /home/student/chef-repo/cookbooks sample \
-                  --config config.rb \
-                  --server-url "$CHEF_SERVER_URL" \
-                  --key "$CHEF_PEM_FILE_PATH"
-        '''
+        script {
+            // Set environment variables
+            def chefServerUrl = 'https://manage.chef.io/organizations/valpo18'
+            def chefPemFilePath = "${pwd()}/.chef/cbandi.pem"
+
+            // Upload cookbook using knife command
+            withCredentials([file(credentialsId: 'chef_secret', variable: 'CHEF_SECRET')]) {
+                sh '''
+                    knife cookbook upload --cookbook-path /home/student/chef-repo/cookbooks sample \
+                          --config config.rb \
+                          --server-url "${chefServerUrl}" \
+                          --key "${chefPemFilePath}"
+                '''
+            }
         }
     }
 }
+
 
 
     }
