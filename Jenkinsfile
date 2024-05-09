@@ -16,6 +16,9 @@ pipeline {
         }
         
         stage('Deployment') {
+            environment {
+        CHEF_SECRET     = credentials('chef_secret')
+    }
     steps {
         script {
             // Set environment variables
@@ -23,19 +26,17 @@ pipeline {
             def chefPemFilePath = "${pwd()}/.chef/cbandi.pem"
 
             // Upload cookbook using knife command
-            withCredentials([file(credentialsId: 'chef_secret', variable: 'CHEF_SECRET')]) {
                 sh ''' 
                     env
                     pwd
                     #mkdir .chef
                     echo "$CHEF_SECRET" > .chef/cbandi.pem
-                    ls $pwd/.chef/cbandi.pem
-                    knife cookbook upload --cookbook-path $pwd sample \
+                    ls .chef/cbandi.pem
+                    knife cookbook upload --cookbook-path $(pwd) sample \
                           --config ./config.rb \
                           --server-url "${chefServerUrl}" \
-                          --key $pwd/.chef/cbandi.pem
+                          --key .chef/cbandi.pem
                 '''
-            }
         }
     }
 }
